@@ -1,5 +1,7 @@
 # slack-emoji
 
+<img src="https://travis-ci.org/sontx/slack-emoji.svg?branch=master" alt="build:">
+
 Server side for handling emoji [Slack slash command](https://api.slack.com/slash-commands) request.
 
 Type:
