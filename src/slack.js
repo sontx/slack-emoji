@@ -48,10 +48,12 @@ function sendHint(command, matchedEmoji, matchedEmojiLink, responseUrl) {
 function sendEmojiList(command, emojis, responseUrl) {
   const message = {
     text: `All available emojis for ${command}`,
-    attachments: emojis.map(emoji => ({
-      text: emoji,
-      color: "#3AA3E3"
-    }))
+    attachments: [
+      {
+        text: emojis.sort().join(", ").trim(),
+        color: "#3AA3E3"
+      }
+    ]
   };
   sendMessageToSlackResponseUrl(responseUrl, message);
 }
