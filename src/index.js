@@ -24,6 +24,10 @@ function findAlmostMatchedEmoji(provider, emojiName) {
   return {};
 }
 
+function getAllAvailableEmojis(provider) {
+  return Object.keys(provider) || [];
+}
+
 app.post(ENDPOINT, urlencodedParser, (req, res) => {
   const reqBody = req.body;
   if (reqBody.token != APP_VERIFICATION_TOKEN) {
@@ -33,10 +37,10 @@ app.post(ENDPOINT, urlencodedParser, (req, res) => {
     const command = reqBody.command;
     const provider = providers[command];
     let emojiName = reqBody.text;
+    const responseUrl = reqBody.response_url;
     if (provider && emojiName) {
       emojiName = emojiName.toLowerCase();
       const emojiLink = provider[emojiName];
-      const responseUrl = reqBody.response_url;
       if (emojiLink) {
         const sender = reqBody.user_id;
         slack.sendEmoji({
@@ -54,6 +58,9 @@ app.post(ENDPOINT, urlencodedParser, (req, res) => {
           slack.sendHint(command, matchedEmoji, matchedEmojiLink, responseUrl);
         }
       }
+    } else if (provider) {
+      const allAvailableEmojis = getAllAvailableEmojis(provider);
+      slack.sendEmojiList(command, allAvailableEmojis, responseUrl);
     }
   }
 });
