@@ -29,7 +29,7 @@ function sendEmoji(response) {
       }
     ]
   };
-  sendMessageToSlackResponseUrl(responseUrl, message);
+  sendMessageToSlackResponseUrl(response.responseUrl, message);
 }
 
 function sendHint(command, matchedEmoji, matchedEmojiLink, responseUrl) {
