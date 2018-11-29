@@ -9,6 +9,18 @@ Type:
 Then:
 ![](https://github.com/sontx/slack-emoji/blob/master/sample.PNG)
 
+# Usage
+
+To show an emoji
+```bash
+/your_command emoji_name
+```
+
+To show all available emojis of a command
+```bash
+/your_command
+```
+
 # Install
 
 Just clone this project and `npm start`
