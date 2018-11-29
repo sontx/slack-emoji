@@ -7,7 +7,7 @@ Type:
 /pepe blood
 ```
 Then:
-![](https://raw.githubusercontent.com/sontx/modbus/master/sample.PNG)
+![](https://github.com/sontx/slack-emoji/blob/master/sample.PNG)
 
 # Install
 
